@@ -2,16 +2,18 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname -d %{name}
 
-Name:           cm256cc
-Version:        1.0.5
-Release:        1%{?dist}
-Summary:        Fast GF(256) Cauchy MDS Block Erasure Codec in C++
-License:        BSD-2-Clause
-Group:          Development/Languages/C and C++
-URL:            https://github.com/f4exb/cm256cc
-Source:         https://github.com/f4exb/cm256cc/archive/%{version}/%{name}-%{version}.tar.gz
-BuildRequires:  boost-devel
-BuildRequires:  cmake
+Name:		cm256cc
+Version:	1.0.5
+Release:	2
+Summary:	Fast GF(256) Cauchy MDS Block Erasure Codec in C++
+License:	BSD-2-Clause
+Group:		Development/Languages/C and C++
+URL:		https://github.com/f4exb/cm256cc
+Source:		https://github.com/f4exb/cm256cc/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:		https://github.com/f4exb/cm256cc/commit/c0e92b92aca3d1d36c990b642b937c64d363c559.patch
+BuildRequires:	boost-devel
+BuildRequires:	cmake
+BuildRequires:	ninja
 
 %description
 This is the rewrite in (as much as possible) clean C++ of cm256.
@@ -47,14 +49,14 @@ Summary:        Documentation for cm256cc
 Documentation for cm256cc
 
 %prep
-%autosetup
+%autosetup -p1
+%cmake -G Ninja
 
 %build
-%cmake
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 %files
 %{_bindir}/cm256_rx

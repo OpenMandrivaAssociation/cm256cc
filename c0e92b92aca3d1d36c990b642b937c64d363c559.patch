@@ -1,0 +1,46 @@
+From c0e92b92aca3d1d36c990b642b937c64d363c559 Mon Sep 17 00:00:00 2001
+From: f4exb <f4exb06@gmail.com>
+Date: Sat, 11 Apr 2020 11:02:40 +0200
+Subject: [PATCH] Force C++11 standard and removed offending define of nullptr.
+ Fixes issue #13
+
+---
+ CMakeLists.txt | 8 ++++++--
+ gf256.h        | 4 ----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f295aa1..d44552a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,9 +15,13 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+ 
+ project(cm256cc)
+ 
++set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD_REQUIRED ON)
++set(CMAKE_CXX_EXTENSIONS OFF)
++
+ set(MAJOR_VERSION 1)
+-set(MINOR_VERSION 0)
+-set(PATCH_VERSION 2)
++set(MINOR_VERSION 1)
++set(PATCH_VERSION 0)
+ set(PACKAGE libcm256cc)
+ set(VERSION_STRING ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION})
+ set(VERSION ${VERSION_STRING})
+diff --git a/gf256.h b/gf256.h
+index a9bf98d..1a63013 100644
+--- a/gf256.h
++++ b/gf256.h
+@@ -105,10 +105,6 @@
+     #define GF256_RESTRICT GF256_RESTRICT_KW
+ #endif
+ 
+-#ifndef nullptr
+-    #define nullptr NULL
+-#endif
+-
+ //-----------------------------------------------------------------------------
+ // GF(256) Context
+ //
