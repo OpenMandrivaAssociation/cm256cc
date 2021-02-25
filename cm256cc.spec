@@ -2,9 +2,11 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname -d %{name}
 
+%global optflags %{optflags} -O3
+
 Name:		cm256cc
 Version:	1.0.5
-Release:	2
+Release:	3
 Summary:	Fast GF(256) Cauchy MDS Block Erasure Codec in C++
 License:	BSD-2-Clause
 Group:		Development/Languages/C and C++
@@ -20,21 +22,21 @@ This is the rewrite in (as much as possible) clean C++ of cm256.
 cm256cc is a simple library for erasure codes. From given data it
 generates redundant data that can be used to recover the originals.
 
-%package -n	%{libname}
-Summary:        Fast GF(256) Cauchy MDS Block Erasure Codec in C++
-Group:          System/Libraries
+%package -n %{libname}
+Summary:	Fast GF(256) Cauchy MDS Block Erasure Codec in C++
+Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 This is the rewrite in (as much as possible) clean C++ of cm256.
 cm256cc is a simple library for erasure codes. From given data it
 generates redundant data that can be used to recover the originals.
 
-%package -n	%{devname}
-Summary:        Development files for the cm256cc library
-Group:          Development/Libraries/C and C++
-Requires:       %{libname} = %{EVRD}
+%package -n %{devname}
+Summary:	Development files for the cm256cc library
+Group:		Development/Libraries/C and C++
+Requires:	%{libname} = %{EVRD}
 
-%description -n	%{devname}
+%description -n %{devname}
 This is the rewrite in (as much as possible) clean C++ of cm256.
 cm256cc is a simple library for erasure codes. From given data it
 generates redundant data that can be used to recover the originals.
@@ -43,10 +45,10 @@ This subpackage contains libraries and header files for developing
 applications that want to make use of libcm256cc.
 
 %package doc
-Summary:        Documentation for cm256cc
+Summary:	Documentation for cm256cc
 
 %description doc
-Documentation for cm256cc
+Documentation for cm256cc.
 
 %prep
 %autosetup -p1
