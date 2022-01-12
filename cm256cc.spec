@@ -5,14 +5,13 @@
 %global optflags %{optflags} -O3
 
 Name:		cm256cc
-Version:	1.0.5
-Release:	3
+Version:	1.1.0
+Release:	1
 Summary:	Fast GF(256) Cauchy MDS Block Erasure Codec in C++
 License:	BSD-2-Clause
 Group:		Development/Languages/C and C++
 URL:		https://github.com/f4exb/cm256cc
 Source:		https://github.com/f4exb/cm256cc/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:		https://github.com/f4exb/cm256cc/commit/c0e92b92aca3d1d36c990b642b937c64d363c559.patch
 BuildRequires:	boost-devel
 BuildRequires:	cmake
 BuildRequires:	ninja
