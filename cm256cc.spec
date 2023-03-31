@@ -6,7 +6,7 @@
 
 Name:		cm256cc
 Version:	1.1.0
-Release:	1
+Release:	2
 Summary:	Fast GF(256) Cauchy MDS Block Erasure Codec in C++
 License:	BSD-2-Clause
 Group:		Development/Languages/C and C++
