@@ -5,8 +5,8 @@
 %global optflags %{optflags} -O3
 
 Name:		cm256cc
-Version:	1.1.0
-Release:	2
+Version:	1.1.1
+Release:	1
 Summary:	Fast GF(256) Cauchy MDS Block Erasure Codec in C++
 License:	BSD-2-Clause
 Group:		Development/Languages/C and C++
